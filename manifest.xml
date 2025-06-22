@@ -12,7 +12,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://your-domain.com/taskpane.html"/>
+    <SourceLocation DefaultValue="https://davids-on.github.io/Office-document-classifier/taskpane.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
