@@ -18,23 +18,29 @@
     <Host Name="Document"/>
   </Hosts>
 
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="WordApi" />
+    </Sets>
+  </Requirements>
+
   <DefaultSettings>
     <SourceLocation DefaultValue="https://davids-on.github.io/Office-document-classifier/taskpane.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
 
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_1">
     <Hosts>
       <Host xsi:type="Document">
         <Runtimes>
-          <Runtime resid="Taskpane.Url" lifetime="long" />
+          <Runtime resid="Taskpane.Url" lifetime="long"/>
         </Runtimes>
         <ExtensionPoint xsi:type="CustomTab">
-          <OfficeTab id="TabHome">
-            <Group id="msgReadGroup">
+          <CustomTab id="CustomTab">
+            <Group id="ClassificationGroup">
               <Label resid="GroupLabel"/>
-              <Control xsi:type="Button" id="msgReadOpenPaneButton">
+              <Control xsi:type="Button" id="OpenClassifierPane">
                 <Label resid="TaskpaneButton.Label"/>
                 <Supertip>
                   <Title resid="TaskpaneButton.Label"/>
@@ -50,7 +56,7 @@
                 </Action>
               </Control>
             </Group>
-          </OfficeTab>
+          </CustomTab>
         </ExtensionPoint>
       </Host>
     </Hosts>
@@ -64,7 +70,7 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://davids-on.github.io/Office-document-classifier/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Classify"/>
+        <bt:String id="GroupLabel" DefaultValue="Classification"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="Label document"/>
       </bt:ShortStrings>
       <bt:LongStrings>
