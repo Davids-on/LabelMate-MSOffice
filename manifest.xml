@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TaskPaneApp">
+  <Id>ce3b0be4-57a2-4d0c-a02f-d1cda21e710a</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Security Avengers</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Document Classifier"/>
+  <Description DefaultValue="Add a classification label to your document."/>
+
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://your-domain.com/taskpane.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+</OfficeApp>
