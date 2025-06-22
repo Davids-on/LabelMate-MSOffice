@@ -20,7 +20,7 @@
 
   <Requirements>
     <Sets DefaultMinVersion="1.1">
-      <Set Name="WordApi" />
+      <Set Name="WordApi"/>
     </Sets>
   </Requirements>
 
@@ -34,13 +34,13 @@
     <Hosts>
       <Host xsi:type="Document">
         <Runtimes>
-          <Runtime resid="Taskpane.Url" lifetime="long"/>
+          <Runtime resid="Taskpane.Url" lifetime="long" />
         </Runtimes>
-        <ExtensionPoint xsi:type="CustomTab">
-          <CustomTab id="CustomTab">
-            <Group id="ClassificationGroup">
+        <ExtensionPoint xsi:type="PrimaryCommandSurface">
+          <OfficeTab id="TabHome">
+            <Group id="GroupLabel">
               <Label resid="GroupLabel"/>
-              <Control xsi:type="Button" id="OpenClassifierPane">
+              <Control xsi:type="Button" id="TaskpaneButton">
                 <Label resid="TaskpaneButton.Label"/>
                 <Supertip>
                   <Title resid="TaskpaneButton.Label"/>
@@ -56,7 +56,7 @@
                 </Action>
               </Control>
             </Group>
-          </CustomTab>
+          </OfficeTab>
         </ExtensionPoint>
       </Host>
     </Hosts>
