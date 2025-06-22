@@ -30,7 +30,7 @@
         <Runtimes>
           <Runtime resid="Taskpane.Url" lifetime="long" />
         </Runtimes>
-        <ExtensionPoint xsi:type="MessageReadCommandSurface">
+        <ExtensionPoint xsi:type="CustomTab">
           <OfficeTab id="TabHome">
             <Group id="msgReadGroup">
               <Label resid="GroupLabel"/>
