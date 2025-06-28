@@ -38,28 +38,22 @@
 
                     sections.items.forEach(section => {
                         const header = section.getHeader("Primary");
-
-                        const contentControls = header.contentControls;
-                        context.load(contentControls, 'tag,title');
+                        const paragraphs = header.paragraphs;
+                        context.load(paragraphs);
 
                         return context.sync().then(() => {
-                            let labelControl = null;
-                            contentControls.items.forEach(cc => {
-                                if (cc.tag === "LabelMateClassification") {
-                                    labelControl = cc;
-                                }
-                            });
-
-                            if (labelControl) {
-                                labelControl.insertText(label, "Replace");
+                            let insertedParagraph;
+                            if (paragraphs.items.length === 0) {
+                                insertedParagraph = header.insertParagraph(label, Word.InsertLocation.start);
                             } else {
-                                const cc = header.insertContentControl();
-                                cc.tag = "LabelMateClassification";
-                                cc.title = "Klasifikace dokumentu";
-                                cc.appearance = "BoundingBox";
-                                cc.color = "blue";
-                                cc.insertText(label, "Replace");
+                                insertedParagraph = header.insertParagraph(label, Word.InsertLocation.start);
                             }
+
+                            const cc = insertedParagraph.insertContentControl();
+                            cc.tag = "LabelMateClassification";
+                            cc.title = "Klasifikace dokumentu";
+                            cc.appearance = "BoundingBox";
+                            cc.color = "blue";
                         });
                     });
 
