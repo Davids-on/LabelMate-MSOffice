@@ -26,24 +26,25 @@
         });
 
         function applyClassification(label) {
-            Word.run(async (context) => {
-                const sections = context.document.sections;
-                context.load(sections, 'headers');
-                await context.sync();
+    		Word.run(async (context) => {
+        		const sections = context.document.sections;
+        		context.load(sections);
 
-                sections.items.forEach(section => {
-                    const header = section.headers.getFirst();
-                    header.insertParagraph(label, Word.InsertLocation.start);
-                });
+        		await context.sync();
 
-                await context.sync();
-            }).catch(function (error) {
-                console.error("Error: " + error);
-                if (error instanceof OfficeExtension.Error) {
-                    console.error("Debug info: " + JSON.stringify(error.debugInfo));
-                }
-            });
-        }
+        		sections.items.forEach(section => {
+            		const header = section.getHeader("Primary");
+            		header.insertParagraph(label, Word.InsertLocation.start);
+        		});
+
+        		await context.sync();
+    		}).catch(function (error) {
+        		console.error("Error: " + error);
+        		if (error instanceof OfficeExtension.Error) {
+            		console.error("Debug info: " + JSON.stringify(error.debugInfo));
+        		}
+    		});
+		}	
     </script>
 </body>
 
