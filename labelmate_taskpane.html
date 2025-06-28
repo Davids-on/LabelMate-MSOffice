@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>LabelMate</title>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        button { margin: 5px; padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+
+<body>
+    <h2>LabelMate - Klasifikace dokumentu</h2>
+    <p>Zvolte úroveň klasifikace:</p>
+    <button id="btn-internal">TLP:Interní</button>
+    <button id="btn-protected">TLP:Chráněný</button>
+    <button id="btn-strict">TLP:PřísněChráněný</button>
+
+    <script>
+        Office.onReady(() => {
+            document.getElementById("btn-internal").onclick = () => applyClassification("TLP:Interní");
+            document.getElementById("btn-protected").onclick = () => applyClassification("TLP:Chráněný");
+            document.getElementById("btn-strict").onclick = () => applyClassification("TLP:PřísněChráněný");
+        });
+
+        function applyClassification(label) {
+            Word.run(async (context) => {
+                const sections = context.document.sections;
+                context.load(sections, 'headers');
+                await context.sync();
+
+                sections.items.forEach(section => {
+                    const header = section.headers.getFirst();
+                    header.insertParagraph(label, Word.InsertLocation.start);
+                });
+
+                await context.sync();
+            }).catch(function (error) {
+                console.error("Error: " + error);
+                if (error instanceof OfficeExtension.Error) {
+                    console.error("Debug info: " + JSON.stringify(error.debugInfo));
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
