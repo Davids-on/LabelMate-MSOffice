@@ -42,8 +42,10 @@ Budoucí vývoj se zaměří na rozšíření funkcí, větší integraci a zlep
 - Uživatelská a administrátorská dokumentace
 
 ## Struktura souborů
+```
 Office-document-classifier/
-├── manifest.xml          # Manifest doplňku
-├── taskpane.html         # UI taskpanu + JavaScript logika
-├── assets/
-│   └── icon.png          # Ikona doplňku
+|-- manifest.xml
+|-- taskpane.html
+|-- assets/
+    |-- icon.png
+```
