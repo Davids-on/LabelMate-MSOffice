@@ -7,7 +7,8 @@
 - Jednoduché vložení klasifikační značky přímo do záhlaví dokumentu (Word) nebo do zvolených polí (Excel, PowerPoint).
 - Banner v taskpane při neklasifikovaném dokumentu s výzvou k označení, který se po klasifikaci automaticky odstraní.
 - Podpora více jazyků (autodetekce jazyka systému, možnost ručního přepnutí).
-- Deployment přes Microsoft 365 Admin Center. 
+- Deployment přes Microsoft 365 Admin Center.
+- Hostování je navrženo přes GitHub Pages. 
 
 ## Instalace
 1. Nasazení přes Admin Centrum Microsoft 365
@@ -49,3 +50,6 @@ Office-document-classifier/
 |-- assets/
     |-- icon.png      # ikona doplňku
 ```
+
+## Dokumentace
+[Office JavaScript API](https://learn.microsoft.com/en-us/office/dev/add-ins/reference/javascript-api-for-office) 
